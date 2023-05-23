@@ -1,0 +1,15 @@
+﻿@model Article
+
+@{
+    var localDateTime = Model.CreatedDate.ToLocalTime();
+}
+
+<tr>
+    <td>@Model.Title</td>
+    <td>@Model.Author</td>
+    <td>@localDateTime.ToLongDateString() @localDateTime.ToShortTimeString()</td>
+    <td>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-success">Edit</a>
+        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+    </td>
+</tr>
